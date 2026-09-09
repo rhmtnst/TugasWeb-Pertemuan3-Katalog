@@ -257,3 +257,16 @@ document.getElementById('sort-select').addEventListener('change', (e) => {
 
   cards.forEach(card => grid.appendChild(card));
 });
+
+// Link filter di menu hamburger
+document.querySelectorAll('.mobile-filter-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const targetFilter = link.dataset.filter;
+    const matchingBtn = document.querySelector(`#filter-buttons button[data-filter="${targetFilter}"]`);
+    if (matchingBtn) matchingBtn.click();
+
+    // Tutup menu hamburger setelah dipilih
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('flex');
+  });
+});
