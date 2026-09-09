@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tugas-rutin-3-katalog</title>
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+ 
+    <body>
+      <div id="search-overlay" class="fixed top-0 left-0 w-full bg-white z-50 hidden shadow-lg border-b border-gray-200">
+  <div class="max-w-2xl mx-auto py-6 px-6">
+    <div class="flex items-center gap-4 border-b border-black pb-3">
+      <span>🔍</span>
+      <input id="search-input" type="text" placeholder="Cari produk..." class="flex-1 outline-none text-lg">
+      <button id="search-close" class="text-2xl leading-none">&times;</button>
+    </div>
+  </div>
+</div>
+
+<div class="bg-black text-white text-xs text-center py-2 overflow-hidden whitespace-nowrap">
+  <div class="animate-marquee inline-block">
+    ✦ Gratis Ongkir min. Rp300.000 ✦ Diskon 20% untuk member baru ✦ Koleksi terbaru setiap minggu ✦ Gratis Ongkir min. Rp300.000 ✦ Diskon 20% untuk member baru ✦ Koleksi terbaru setiap minggu ✦
+  </div>
+</div>
+ <nav class="relative z-40 flex items-center justify-between px-8 py-5 border-b border-gray-200 bg-white transition-all duration-300">
+  <div class="text-xl font-semibold tracking-tight">Monangan Co.</div>
+
+  <ul class="hidden md:flex items-center gap-8 list-none text-sm">
+    <li class="relative group py-5">
+      <a href="#" class="text-black hover:text-gray-500">Pria</a>
+      <div class="absolute left-1/2 -translate-x-1/2 top-full w-64 bg-white border border-gray-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-4 grid grid-cols-2 gap-3 z-40">
+        <a href="#grid-produk" class="block group/item">
+          <img src="/images/products/kemeja-linen-abu.jpg" class="w-full aspect-[3/4] object-cover mb-1 group-hover/item:opacity-75">
+          <p class="text-xs">Kemeja Linen</p>
+        </a>
+        <a href="#grid-produk" class="block group/item">
+          <img src="/images/products/celana-chino-coklat.jpg" class="w-full aspect-[3/4] object-cover mb-1 group-hover/item:opacity-75">
+          <p class="text-xs">Celana Chino</p>
+        </a>
+        <a href="#grid-produk" class="col-span-2 text-center text-xs font-medium underline mt-1 pt-1 border-t border-gray-100">Lihat Semua Pria</a>
+      </div>
+    </li>
+
+    <li class="relative group py-5">
+      <a href="#" class="text-black hover:text-gray-500">Wanita</a>
+      <div class="absolute left-1/2 -translate-x-1/2 top-full w-64 bg-white border border-gray-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-4 grid grid-cols-2 gap-3 z-40">
+        <a href="#grid-produk" class="block group/item">
+          <img src="/images/products/blouse-satin-hitam.jpg" class="w-full aspect-[3/4] object-cover mb-1 group-hover/item:opacity-75">
+          <p class="text-xs">Blouse Satin</p>
+        </a>
+        
+        <a href="#grid-produk" class="block group/item">
+          <img src="/images/products/dress-casual-coklat.jpg" class="w-full aspect-[3/4] object-cover mb-1 group-hover/item:opacity-75">
+          <p class="text-xs">Dress Casual</p>
+        </a>
+        <a href="#grid-produk" class="col-span-2 text-center text-xs font-medium underline mt-1 pt-1 border-t border-gray-100">Lihat Semua Wanita</a>
+      </div>
+    </li>
+
+    <li class="py-5"><a href="#grid-produk" class="text-black hover:text-gray-500">Semua</a></li>
+  </ul>
+
+  <div class="flex items-center gap-5">
+    <button id="search-btn" aria-label="Cari">🔍</button>
+    <button id="cart-btn" aria-label="Keranjang" class="relative">
+      🛒
+    <span class="absolute -top-2 -right-2 bg-black text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">0</span>
+    <span id="cart-count" class="absolute -top-2 -right-2 bg-black text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">0</span>
+    </button>
+    <button id="hamburger-btn" class="md:hidden" aria-label="Menu">☰</button>
+  </div>
+
+  <ul id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 flex-col gap-4 list-none text-sm px-8 py-6 z-40">
+    <li><a href="#" class="hover:text-gray-500">Pria</a></li>
+    <li><a href="#" class="hover:text-gray-500">Wanita</a></li>
+    <li><a href="#" class="hover:text-gray-500">Semua</a></li>
+  </ul>
+</nav>
+
+<section class="relative h-[70vh] min-h-[400px]">
+  <div class="relative w-full h-[440px] overflow-hidden">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover">
+    
+    <source src="/videos/video1.mp4" type="video/mp4">
+    
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/30"></div>
+
+  <div class="relative z-10 flex items-center justify-center h-full text-white">
+    <div class="text-center">
+      <p class="text-sm tracking-widest mb-4">
+        KOLEKSI TERBARU
+      </p>
+
+      <h1 class="text-6xl font-medium mb-8">
+        New Arrivals
+      </h1>
+
+      <a href="#grid-produk" class="bg-black text-white px-8 py-3">
+        Belanja Sekarang
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
+<div id="filter-buttons" class="flex items-center justify-center gap-6 py-8 border-b border-gray-200">
+  <button data-filter="semua" class="text-sm font-medium border-b-2 border-black pb-1">Semua</button>
+  <button data-filter="pria" class="text-sm text-gray-500 hover:text-black">Pria</button>
+  <button data-filter="wanita" class="text-sm text-gray-500 hover:text-black">Wanita</button>
+</div>
+
+<div id="grid-produk" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10 px-6 md:px-8 py-12">
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="pria">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/kemeja-linen-abu.jpg" alt="Kemeja Linen" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Kemeja Linen</h3>
+    <p class="text-sm text-gray-500">Rp 299.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-black border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/kemeja-linen-hitam.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-gray-400 border border-gray-300" data-img="/images/products/kemeja-linen-abu.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="pria">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/kaos-basic-hitam.jpg" alt="Kaos Basic" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Kaos Basic</h3>
+    <p class="text-sm text-gray-500">Rp 149.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-black border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/kaos-basic-hitam.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-gray-400 border border-gray-300" data-img="/images/products/kaos-basic-abu.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+
+
+ <div class="product-card reveal group cursor-pointer" data-category="pria">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/celana-chino-coklat.jpg" alt="Celana Chino" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Celana Chino</h3>
+    <p class="text-sm text-gray-500">Rp 349.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-black border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/celana-chino-hitam.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-amber-800 border border-gray-300" data-img="/images/products/celana-chino-coklat.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="wanita">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/blouse-satin-abu.jpg" alt="Blouse Satin" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Blouse Satin</h3>
+    <p class="text-sm text-gray-500">Rp 279.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-black border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/blouse-satin-hitam.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-gray-400 border border-gray-300" data-img="/images/products/blouse-satin-abu.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="wanita">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/dress-casual-hitam.jpg" alt="Dress Casual" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Dress Casual</h3>
+    <p class="text-sm text-gray-500">Rp 399.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-black border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/dress-casual-hitam.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-amber-800 border border-gray-300" data-img="/images/products/dress-casual-coklat.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="wanita">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/rok-plisket-abu.jpg" alt="Rok Plisket" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Rok Plisket</h3>
+    <p class="text-sm text-gray-500">Rp 229.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-black border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/rok-plisket-hitam.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-gray-400 border border-gray-300" data-img="/images/products/rok-plisket-abu.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="col-span-full grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="relative overflow-hidden group cursor-pointer">
+      <img src="/images/products/model-rajut.jpg" alt="Koleksi Musim Ini" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-700">
+        <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover">
+    
+    <source src="/videos/video3.mp4" type="video/mp4">
+    
+  </video>
+      <div class="absolute inset-0 bg-black/30 flex flex-col items-start justify-end p-6">
+        <p class="text-white text-xs tracking-widest uppercase mb-2">EVERYDAY DENIM</p>
+        <h3 class="text-white text-2xl font-semibold mb-3">Made for every moment</h3>
+        <a href="#grid-produk" class="text-white text-sm underline">Lihat Koleksi</a>
+      </div>
+    </div>
+ 
+    <div class="relative overflow-hidden group cursor-pointer">
+      <img src="/images/products/model-panel.jpg" alt="Koleksi Wanita" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-700">
+       <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover">
+    
+    <source src="/videos/video4.mp4" type="video/mp4">
+    
+  </video>
+      <div class="absolute inset-0 bg-black/30 flex flex-col items-start justify-end p-6">
+        <p class="text-white text-xs tracking-widest uppercase mb-2">DENIM, REIMAGINED</p>
+        <h3 class="text-white text-2xl font-semibold mb-3">Everyday layers, effortless style</h3>
+        <a href="#grid-produk" class="text-white text-sm underline">Lihat Koleksi</a>
+      </div>
+    </div>
+  </div>
+ 
+  
+
+  
+  <div class="product-card reveal group cursor-pointer" data-category="pria">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/jaket-bomber-hitam.jpg" alt="Jaket Bomber" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Jaket Bomber</h3>
+    <p class="text-sm text-gray-500">Rp 459.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-black border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/jaket-bomber-hitam.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-blue-900 border border-gray-300" data-img="/images/products/jaket-bomber-navy.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="pria">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/sweater-rajut-krem.jpg" alt="Sweater Rajut" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Sweater Rajut</h3>
+    <p class="text-sm text-gray-500">Rp 329.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-stone-300 border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/sweater-rajut-krem.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-gray-400 border border-gray-300" data-img="/images/products/sweater-rajut-abu.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="pria">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/jeans-slimfit-navy.jpg" alt="Jeans Slim Fit" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Jeans Slim Fit</h3>
+    <p class="text-sm text-gray-500">Rp 389.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-blue-900 border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/jeans-slimfit-navy.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-black border border-gray-300" data-img="/images/products/jeans-slimfit-hitam.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="wanita">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/cardigan-rajut-maroon.jpg" alt="Cardigan Rajut" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Cardigan Rajut</h3>
+    <p class="text-sm text-gray-500">Rp 359.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-red-800 border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/cardigan-rajut-maroon.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-stone-300 border border-gray-300" data-img="/images/products/cardigan-rajut-krem.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="wanita">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/celana-wideleg-hitam.jpg" alt="Celana Wide Leg" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Celana Wide Leg</h3>
+    <p class="text-sm text-gray-500">Rp 299.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-black border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/celana-wideleg-hitam.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-gray-400 border border-gray-300" data-img="/images/products/celana-wideleg-abu.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+ 
+  <div class="product-card reveal group cursor-pointer" data-category="wanita">
+    <div class="aspect-[3/4] overflow-hidden bg-gray-100 relative">
+      <img src="/images/products/jaket-denim-navy.jpg" alt="Jaket Denim" class="product-img w-full h-full object-cover group-hover:scale-105 transition duration-500">
+      <button aria-label="Wishlist" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-lg">♡</button>
+    </div>
+    <h3 class="mt-3 text-sm font-medium">Jaket Denim</h3>
+    <p class="text-sm text-gray-500">Rp 419.000</p>
+    <div class="flex gap-1.5 mt-2 mb-2">
+      <button class="w-4 h-4 rounded-full bg-blue-900 border border-gray-300 ring-2 ring-offset-2 ring-black" data-img="/images/products/jaket-denim-navy.jpg"></button>
+      <button class="w-4 h-4 rounded-full bg-stone-300 border border-gray-300" data-img="/images/products/jaket-denim-krem.jpg"></button>
+    </div>
+    <div class="flex gap-1.5 mb-2">
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">S</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">M</button>
+      <button class="text-xs px-2 py-1 border border-black bg-black text-white">L</button>
+      <button class="text-xs px-2 py-1 border border-gray-300 hover:border-black">XL</button>
+    </div>
+    <div class="flex gap-2">
+      <button class="flex-1 bg-black text-white text-xs py-2 hover:bg-gray-800">Beli</button>
+      <button class="flex-1 border border-black text-xs py-2 hover:bg-gray-100">Detail</button>
+    </div>
+  </div>
+
+ 
+
+ <div class="col-span-full relative overflow-hidden group cursor-pointer">
+    <img src="https://picsum.photos/1400/500?random=202" alt="Koleksi Lengkap Monangan Co." class="w-full aspect-[21/9] object-cover group-hover:scale-105 transition duration-700">
+      <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover">
+    
+    <source src="/videos/video2.mp4" type="video/mp4">
+    
+  </video>
+    <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center p-6">
+      <p class="text-white text-xs tracking-widest uppercase mb-2">Monangan Co.</p>
+      <h3 class="text-white text-3xl font-semibold mb-4">Gaya Sehari-hari, Kualitas Sepanjang Waktu</h3>
+      <a href="#filter-buttons" class="bg-white text-black px-6 py-2.5 text-sm font-medium hover:bg-gray-200">Jelajahi Semua Koleksi</a>
+    </div>
+  </div>
+ 
+</div>
+
+<div id="results-bar" class="flex items-center justify-between px-6 md:px-8 pt-8 text-sm text-gray-500">
+  <p id="product-count">Menampilkan 12 Produk</p>
+  <select id="sort-select" class="border border-gray-300 text-sm px-3 py-1.5 bg-white">
+    <option>Urutkan: Terbaru</option>
+    <option>Harga: Rendah ke Tinggi</option>
+    <option>Harga: Tinggi ke Rendah</option>
+    <option>Nama: A-Z</option>
+  </select>
+</div>
+
+</div>
+
+<footer class="border-t border-gray-200 px-8 py-12 mt-12">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+    <div>
+      <p class="font-semibold mb-3">Monangan Co.</p>
+      <p class="text-gray-500">Pakaian kasual dengan gaya minimalis untuk sehari-hari.</p>
+    </div>
+    <div>
+      <p class="font-semibold mb-3">Belanja</p>
+      <ul class="space-y-2 text-gray-500 list-none">
+        <li><a href="#" class="hover:text-black">Pria</a></li>
+        <li><a href="#" class="hover:text-black">Wanita</a></li>
+        <li><a href="#" class="hover:text-black">Semua Produk</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold mb-3">Bantuan</p>
+      <ul class="space-y-2 text-gray-500 list-none">
+        <li><a href="#" class="hover:text-black">Cara Pemesanan</a></li>
+        <li><a href="#" class="hover:text-black">Pengiriman</a></li>
+        <li><a href="#" class="hover:text-black">Kontak</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold mb-3">Ikuti Kami</p>
+      <ul class="space-y-2 text-gray-500 list-none">
+        <li><a href="#" class="hover:text-black">Instagram</a></li>
+        <li><a href="#" class="hover:text-black">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="text-xs text-gray-400 mt-10">&copy; 2026 Monangan Co. Tugas Pemrograman Web — Pertemuan 3.</p>
+</footer>
+<script type="module" src="/src/app.js"></script>
+<div id="cart-overlay" class="fixed inset-0 bg-black/40 z-40 hidden"></div>
+
+<aside id="cart-drawer" class="fixed top-0 right-0 h-full w-80 max-w-full bg-white z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200">
+    <h2 class="font-semibold">Keranjang</h2>
+    <button id="cart-close" class="text-xl leading-none">&times;</button>
+  </div>
+  <div id="cart-items" class="flex-1 overflow-y-auto px-5 py-4 space-y-4">
+    <p id="cart-empty" class="text-sm text-gray-400">Keranjang masih kosong.</p>
+  </div>
+  <div class="border-t border-gray-200 px-5 py-4">
+    <button class="w-full bg-black text-white py-3 text-sm font-medium hover:bg-gray-800">Checkout</button>
+  </div>
+</aside>
+</body>
+ 
+</html>
